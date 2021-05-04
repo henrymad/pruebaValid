@@ -14,11 +14,14 @@ import {MaterialModule } from './material.module';
 import {HomeComponent } from './pages/home/home.component';
 import { RegistrosComponent } from './pages/registros/registros.component';
 
+import { AlphabetOnlyDirective } from './alphabet-only.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    RegistrosComponent
+    RegistrosComponent,
+    AlphabetOnlyDirective
   ],
   imports: [
     BrowserModule,

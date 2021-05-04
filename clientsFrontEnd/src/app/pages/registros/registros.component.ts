@@ -16,8 +16,7 @@ export class RegistrosComponent implements OnInit {
 
   listaUsuarios: any = [];
   usuarios: number[]= [];
-  estado: string = 'Registrado'
-
+  
   constructor(private registrosUsuarios: RegistrarUsuarioService, private router: Router) { }
 
   ngOnInit(): void {
@@ -28,6 +27,7 @@ export class RegistrosComponent implements OnInit {
   usuariosRegistro(){
     this.registrosUsuarios.getUsuario().subscribe(respons => {
       this.listaUsuarios = respons.body;
+      console.log(this.listaUsuarios);
       if(respons.status == "422"){
         Swal.fire({
           icon: 'warning',
@@ -51,7 +51,7 @@ export class RegistrosComponent implements OnInit {
     
   }
 
-  select(procesado: boolean, id:number){
+  select(id:number){
     this.usuarios.push(id);
   }
 
@@ -60,7 +60,7 @@ export class RegistrosComponent implements OnInit {
       this.registrosUsuarios.putUsuario(this.listaUsuarios[this.usuarios[i]-1]).subscribe(res => {
        console.log(res);
         if(res.statusCodeValue == 200){
-          
+          window.location.reload();
         }
         if(res.status == "400"){
           Swal.fire({

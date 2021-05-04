@@ -1,5 +1,4 @@
-<div class="container card mt-4">
-   
+<div class="container mt-4">
     <div class="row">
       <div class="col-12">
           <h1 class="color-title mt-3">CONSULTA DE REGISTROS</h1>
@@ -18,14 +17,13 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let usuario of listaUsuarios; let i = index">
+            <tr *ngFor="let usuario of listaUsuarios">
               <th>{{usuario.id}}</th>
               <th>{{usuario.nombre}}</th>
               <th>{{usuario.apellido}}</th>
-              <th>{{estado}}</th>
+              <th>{{usuario.estado}}</th>
               <th><mat-checkbox
-                [checked]="usuario.estado"
-                (change)="select(usuario.procesado, usuario.id)"
+                (change)="select(usuario.id)"
               >
               </mat-checkbox></th>
             </tr>
@@ -43,5 +41,4 @@
         </div>
       </div>
   </div>
-   
 </div>

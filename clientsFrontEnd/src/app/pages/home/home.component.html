@@ -8,7 +8,6 @@
                <mat-card-content class="ml-3 mr-3 ">
                    <form 
                         class="justify-content-center"
-                        #form = 'ngForm'
                     >
                        <mat-form-field class="w-100  pb-3">
                            <mat-label>Nombre</mat-label>
@@ -17,6 +16,7 @@
                                 matInput
                                 name="name"
                                 [(ngModel)] = 'usuario.nombre'
+                                appAlphabetOnly
                             >
                        </mat-form-field>
                        <mat-form-field class="w-100  pb-4">
@@ -26,7 +26,7 @@
                                 matInput
                                 name="lastname"
                                 [(ngModel)] = 'usuario.apellido'
-                                pattern="[A-Z]+"
+                                appAlphabetOnly
                             >
                         </mat-form-field>
                         <button
